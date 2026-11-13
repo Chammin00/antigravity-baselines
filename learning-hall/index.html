@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centralized 3D Learning Hall | Antigravity Enterprise Observatory</title>
+
+  <!-- Tailwind CSS Engine -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- AWS Enterprise Baseline + High-Gloss Lacquer -->
+  <link rel="stylesheet" href="high-gloss-lacquer.css">
+  <link rel="stylesheet" href="aws-enterprise-baseline.css">
+  <script src="high-gloss-lacquer.js" defer></script>
+  <script src="aws-enterprise-baseline.js" defer></script>
+  <script src="mcp-baseline.js" defer></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #050b18;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      user-select: none;
+    }
+
+    #canvas-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    /* High-Gloss Glassmorphic Dock */
+    .glass-hud {
+      background: rgba(6, 15, 30, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(197, 160, 89, 0.35);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 20px rgba(197, 160, 89, 0.12);
+    }
+
+    /* Walking Telemetry Indicator */
+    .foot-pulse {
+      transition: all 0.15s ease-out;
+    }
+    .foot-active {
+      background-color: #c5a059 !important;
+      color: #050b18 !important;
+      box-shadow: 0 0 12px #c5a059;
+      transform: scale(1.15);
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      background: rgba(4, 9, 20, 0.78);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.04);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(197, 160, 89, 0.4);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(197, 160, 89, 0.7);
+    }
+  </style>
+</head>
+<body class="text-slate-100 selection:bg-[#c5a059] selection:text-[#050b18]">
+
+  <!-- 3D WebGL Canvas Viewport -->
+  <div id="canvas-container"></div>
+
+  <!-- Top Global Header (AWS Enterprise Architecture Baseline) -->
+  <header class="fixed top-0 left-0 right-0 z-20 h-14 bg-[#050b18]/90 backdrop-blur-md border-b border-[#c5a059]/25 px-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#c5a059] via-[#dfba73] to-[#38bdf8] p-[1.5px] shadow-md shadow-[#c5a059]/20 flex items-center justify-center">
+        <div class="w-full h-full bg-[#050b18] rounded-[6px] flex items-center justify-center text-sm font-bold text-[#c5a059]">
+          🏛️
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-white tracking-tight">Centralized 3D Learning Hall</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            CramExam Standard
+          </span>
+        </div>
+        <p id="header-subject-count" class="text-[10px] text-slate-400 font-mono hidden sm:block">
+          Memory Palace Traversal • 1K PBR Parquet
+        </p>
+      </div>
+    </div>
+
+    <!-- Center Subject Jump Dropdown & Search -->
+    <div class="flex items-center gap-3 flex-1 max-w-lg mx-4">
+      <select id="subject-select" class="bg-[#09152b] border border-[#c5a059]/30 rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none focus:border-[#c5a059] font-mono">
+        <option value="1">I. CompTIA Security+ (SY0-701)</option>
+        <option value="2">II. Red Hat Certified SysAdmin (EX200)</option>
+        <option value="3">III. AWS Solutions Architect (CLF-C02)</option>
+        <option value="4">IV. Red Hat OpenShift & Containers (EX280)</option>
+        <option value="5">V. Enterprise Systems Scripting (Bash/PS)</option>
+        <option value="6">VI. Cyber Defense & SIEM Forensics</option>
+        <option value="7">VII. Reverse Engineering (Ghidra/x64dbg)</option>
+        <option value="8">VIII. Autonomous AI & Model Training</option>
+      </select>
+
+      <div class="relative flex-1 hidden md:block">
+        <input type="text" id="global-search-input" placeholder="Search cram triggers, ports, domains (Ctrl+K)..."
+               class="w-full bg-[#09152b] border border-white/10 rounded-lg px-3 py-1 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#c5a059] font-mono">
+        <span class="absolute right-2 top-1 text-[10px] font-mono text-slate-500 border border-white/10 px-1 rounded">⌘K</span>
+      </div>
+    </div>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-2">
+      <button id="launch-rhcsa-quest-btn" class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-red-600/20 hover:bg-red-600/35 text-red-300 border border-red-500/40 transition-all flex items-center gap-1.5" title="Launch Google AI Studio RHEL 9 RHCSA Exam Quest (EX200)">
+        <span>🎩</span>
+        <span class="hidden lg:inline">RHCSA Quest</span>
+      </button>
+      <button id="launch-scripting-lecture-btn" class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-sky-500/20 hover:bg-sky-500/35 text-sky-300 border border-sky-500/40 transition-all flex items-center gap-1.5" title="Launch Enterprise Scripting Lecture & Dual-Shell Terminal (Bash + PowerShell 7)">
+        <span>📜</span>
+        <span class="hidden lg:inline">Scripting Lecture</span>
+      </button>
+      <button id="view-mode-toggle-btn" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all flex items-center gap-1.5" title="Switch between 1st Person and 3rd Person View (V)">
+        <span class="text-emerald-400">🏃</span>
+        <span class="font-bold">3rd Person</span>
+        <span class="text-[10px] text-slate-400 border border-white/10 px-1 rounded">V</span>
+      </button>
+      <button id="audio-toggle-btn" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all">
+        🔊 Audio On
+      </button>
+      <a href="../grade-school-hall/index.html" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:border-amber-400 transition-all flex items-center gap-1" title="Launch 3D Grade School Learning Hall">
+        <span>🎒</span> Grade School Hall
+      </a>
+      <a href="../index.html" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-[#0e1d3a] text-[#dfba73] border border-[#c5a059]/30 hover:border-[#c5a059] transition-all flex items-center gap-1">
+        <span>⚡</span> Baselines
+      </a>
+      <button class="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10" onclick="AntigravityEnterprise.toggleFullscreen()" title="Fullscreen">
+        ⛶
+      </button>
+    </div>
+  </header>
+
+  <!-- Walking Telemetry HUD (Appears during first-person corridor traverse) -->
+  <div id="walking-hud" class="fixed top-16 left-1/2 -translate-x-1/2 z-20 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="glass-hud px-5 py-2.5 rounded-full flex items-center gap-4">
+      <div class="flex items-center gap-1.5 font-mono text-xs text-[#dfba73]">
+        <span class="animate-spin text-sm">🚶</span>
+        <span>TRAVERSING TO:</span>
+        <strong id="walking-to-label" class="text-white">Exhibit</strong>
+      </div>
+
+      <!-- Footstep Stride Indicator -->
+      <div class="flex items-center gap-1.5 font-mono text-[11px]">
+        <span id="foot-l" class="foot-pulse px-2 py-0.5 rounded bg-white/10 text-slate-400">L</span>
+        <span id="foot-r" class="foot-pulse px-2 py-0.5 rounded bg-white/10 text-slate-400">R</span>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="w-24 h-1.5 rounded-full bg-white/10 overflow-hidden">
+        <div id="walking-progress-bar" class="h-full bg-[#c5a059] transition-all duration-75" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Floating Station Dock -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-20 w-[94%] max-w-4xl">
+    <div class="glass-hud rounded-2xl p-4 md:p-5">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        
+        <!-- Left: Subject Station Info -->
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span id="hud-subject-roman" class="text-xs font-black font-mono px-2 py-0.5 rounded bg-[#c5a059]/20 text-[#dfba73] border border-[#c5a059]/40">
+              I
+            </span>
+            <span id="hud-subject-code" class="text-xs font-mono text-slate-400">[SY0-701]</span>
+            <span id="hud-subject-grade" class="text-[10px] font-bold font-mono px-2 py-0.5 rounded-full border border-emerald-500 text-emerald-400">
+              A- (EXAM READY)
+            </span>
+          </div>
+
+          <h2 id="hud-subject-title" class="text-base md:text-lg font-bold text-white tracking-tight truncate">
+            CompTIA Security+ & Core IT Architecture
+          </h2>
+
+          <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400">
+            <span class="text-rose-400 font-mono">⚡ Weak Spot:</span>
+            <span id="hud-weak-spot" class="truncate text-slate-300">Cryptographic Implementations</span>
+          </div>
+        </div>
+
+        <!-- Center: Readiness Gauge -->
+        <div class="w-full md:w-48">
+          <div class="flex items-center justify-between text-xs font-mono mb-1">
+            <span class="text-slate-400">READINESS</span>
+            <span id="hud-subject-readiness-pct" class="font-bold text-[#dfba73]">88%</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+            <div id="hud-subject-readiness-bar" class="h-full rounded-full bg-[#f59e0b] transition-all duration-500" style="width: 88%"></div>
+          </div>
+        </div>
+
+        <!-- Right: Action Controls -->
+        <div class="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap sm:flex-nowrap">
+          <button id="rpg-run-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-[#c5a059]/20 text-slate-200 hover:text-[#dfba73] border border-white/15 hover:border-[#c5a059]/50 transition-all font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Toggle / Hold Sprint Speed (Shift)">
+            <span id="rpg-run-icon">⚡</span>
+            <span id="rpg-run-label">RUN [Shift]</span>
+          </button>
+          <button id="rpg-jump-btn" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-600 via-[#c5a059] to-[#dfba73] hover:from-[#dfba73] hover:to-amber-600 text-slate-950 font-mono text-xs font-bold transition-all shadow-lg shadow-[#c5a059]/25 flex items-center gap-1.5 active:scale-95 select-none" title="Leap into the air with vertical spring arc (Space)">
+            <span>🚀</span>
+            <span>JUMP [Space]</span>
+          </button>
+          <button id="prev-subject-btn" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all font-mono text-xs" title="Walk to Previous Exhibit (A / ←)">
+            ←
+          </button>
+          <button id="open-deep-stats-btn" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#c5a059] to-[#dfba73] hover:from-[#dfba73] hover:to-[#c5a059] text-[#050b18] font-bold font-mono text-xs transition-all shadow-lg shadow-[#c5a059]/20 flex items-center gap-2">
+            <span>📊</span> Deep Telemetry [E]
+          </button>
+          <button id="next-subject-btn" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all font-mono text-xs" title="Walk to Next Exhibit (D / →)">
+            →
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Deeper Stats & Centralized Training Suite Console Modal -->
+  <div id="deep-stats-modal" class="fixed inset-0 z-30 hidden modal-backdrop flex items-center justify-center p-2 sm:p-4 transition-all duration-300">
+    <div id="modal-card" class="bg-[#071124] border border-[#c5a059]/40 rounded-3xl w-full max-w-5xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden transition-all duration-300">
+      
+      <!-- Modal Top Header -->
+      <div class="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span id="modal-subject-roman" class="text-xs font-black font-mono text-[#dfba73]">EXHIBIT I</span>
+            <span id="modal-subject-code" class="text-xs font-mono text-slate-400">[SY0-701]</span>
+            <span id="modal-grade-badge" class="text-[10px] font-bold font-mono px-2 py-0.5 rounded-full border border-emerald-500 text-emerald-400">
+              A- (EXAM READY)
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hidden sm:inline-block">
+              100% Centralized & In-Studio
+            </span>
+          </div>
+          <h2 id="modal-subject-title" class="text-lg md:text-xl font-bold text-white tracking-tight">
+            CompTIA Security+
+          </h2>
+          <p id="modal-subject-subtitle" class="text-xs text-slate-400 font-mono mt-0.5">
+            5 Core Domains
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button id="maximize-modal-btn" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white flex items-center justify-center transition-all font-mono text-xs" title="Toggle Fullscreen Lab (F)">
+            ⛶
+          </button>
+          <button id="close-modal-btn" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all font-mono" title="Close (ESC)">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Tabs Bar -->
+      <div class="flex items-center gap-1.5 px-4 sm:px-5 border-b border-white/10 bg-[#050b18]/60 font-mono text-xs overflow-x-auto select-none">
+        <button class="modal-tab-btn py-3 px-3 border-b-2 border-[#c5a059] text-[#dfba73] font-bold transition-all shrink-0" data-tab="domains">
+          📊 Domain Radar
+        </button>
+        <button class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-white transition-all shrink-0" data-tab="quiz">
+          ⚡ Cram Quiz (Active Recall)
+        </button>
+        <button class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-white transition-all shrink-0" data-tab="lab">
+          💻 Hands-On Lab & Terminal
+        </button>
+        <button class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-white transition-all shrink-0" data-tab="rhcsa-quest">
+          🎩 RHCSA Exam Quest
+        </button>
+        <button class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-white transition-all shrink-0" data-tab="scripting-lecture">
+          📜 Scripting Lecture & Terminal
+        </button>
+        <button class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-white transition-all shrink-0" data-tab="flashcards">
+          🗂️ 3D Flashcards Deck
+        </button>
+        <button class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-white transition-all shrink-0" data-tab="cheatsheet">
+          📖 Study Guide & Ports
+        </button>
+        <button class="modal-tab-btn py-3 px-3 border-b-2 border-transparent text-slate-400 hover:text-white transition-all shrink-0" data-tab="launcher">
+          🚀 Backup Workspace Links
+        </button>
+      </div>
+
+      <!-- Modal Content Body -->
+      <div class="p-4 sm:p-6 overflow-y-auto flex-1">
+        <div id="tab-domains" class="modal-tab-content"></div>
+        <div id="tab-quiz" class="modal-tab-content hidden"></div>
+        <div id="tab-lab" class="modal-tab-content hidden"></div>
+        <div id="tab-rhcsa-quest" class="modal-tab-content hidden"></div>
+        <div id="tab-scripting-lecture" class="modal-tab-content hidden"></div>
+        <div id="tab-flashcards" class="modal-tab-content hidden"></div>
+        <div id="tab-cheatsheet" class="modal-tab-content hidden"></div>
+        <div id="tab-launcher" class="modal-tab-content hidden"></div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-3.5 border-t border-white/5 bg-[#050b18]/80 flex items-center justify-between text-[11px] font-mono text-slate-500">
+        <div>All Training Suites, RHCSA Quest & Scripting Lecture Centralized • Space / Esc / F Shortcuts</div>
+        <div class="text-[#c5a059]">Antigravity Centralized Learning Hall</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="learning-data.js?v=2"></script>
+  <script src="data/rhcsa_quests.js?v=2"></script>
+  <script src="rhcsa-exam-quest-suite.js?v=2"></script>
+  <script src="scripting-lecture-studio.js?v=2"></script>
+  <script src="learning-hall-centralized-suites.js?v=2"></script>
+  <script src="learning-hall-scene.js?v=2"></script>
+  <script src="learning-hall-engine.js?v=2"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let footToggle = false;
+      let engine = null;
+
+      const hallScene = new LearningHallScene('canvas-container', window.LEARNING_SUBJECTS, {
+        onWalkStart: (fromSubj, toSubj) => {
+          if (engine) engine.onWalkStarted(fromSubj, toSubj);
+        },
+        onWalkProgress: (pct) => {
+          const bar = document.getElementById('walking-progress-bar');
+          if (bar) bar.style.width = `${Math.round(pct * 100)}%`;
+        },
+        onFootstep: (stepIdx) => {
+          if (engine) engine.playFootstep(stepIdx);
+          footToggle = !footToggle;
+          const l = document.getElementById('foot-l');
+          const r = document.getElementById('foot-r');
+          if (footToggle) {
+            l?.classList.add('foot-active');
+            r?.classList.remove('foot-active');
+          } else {
+            r?.classList.add('foot-active');
+            l?.classList.remove('foot-active');
+          }
+        },
+        onArrive: (arrivedSubj) => {
+          if (engine) engine.onWalkCompleted(arrivedSubj);
+        },
+        onViewModeChange: (mode) => {
+          if (engine) engine.updateViewModeUI(mode);
+        },
+        onSubjectSelect: (subj, openModal = false) => {
+          if (engine) {
+            engine.renderSubjectStationHUD(subj);
+            if (openModal) engine.openDeepStatsModal();
+          }
+        }
+      });
+
+      engine = new LearningHallEngine(window.LEARNING_SUBJECTS, hallScene);
+    });
+  </script>
+</body>
+</html>

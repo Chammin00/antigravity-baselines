@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Grade School Learning Hall | 1st Grade Flagship Academy</title>
+
+  <!-- Tailwind CSS Engine -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- AWS Enterprise Baseline + High-Gloss Lacquer -->
+  <link rel="stylesheet" href="high-gloss-lacquer.css">
+  <link rel="stylesheet" href="aws-enterprise-baseline.css">
+  <link rel="stylesheet" href="children-learning-baseline.css">
+  <script src="high-gloss-lacquer.js" defer></script>
+  <script src="aws-enterprise-baseline.js" defer></script>
+  <script src="children-learning-baseline.js" defer></script>
+  <script src="mcp-baseline.js" defer></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #070c18;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      user-select: none;
+    }
+
+    #canvas-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    /* High-Gloss Glassmorphic Dock */
+    .glass-hud {
+      background: rgba(7, 14, 28, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(245, 158, 11, 0.12);
+    }
+
+    /* Walking Telemetry Indicator */
+    .foot-pulse {
+      transition: all 0.15s ease-out;
+    }
+    .foot-active {
+      background-color: #f59e0b !important;
+      color: #070c18 !important;
+      box-shadow: 0 0 12px #f59e0b;
+      transform: scale(1.15);
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      background: rgba(4, 9, 20, 0.82);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.04);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(245, 158, 11, 0.4);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(245, 158, 11, 0.7);
+    }
+  </style>
+</head>
+<body class="text-slate-100 selection:bg-[#f59e0b] selection:text-[#070c18]">
+
+  <!-- 3D WebGL Canvas Viewport -->
+  <div id="canvas-container"></div>
+
+  <!-- Top Global Header (AWS Enterprise Architecture Baseline) -->
+  <header class="fixed top-0 left-0 right-0 z-20 h-16 bg-[#070c18]/92 backdrop-blur-md border-b border-[#f59e0b]/30 px-4 flex items-center justify-between">
+    
+    <!-- Left: Branding & Academy Badge -->
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-yellow-400 to-emerald-400 p-[1.5px] shadow-lg shadow-amber-500/20 flex items-center justify-center">
+        <div class="w-full h-full bg-[#070c18] rounded-[10px] flex items-center justify-center text-lg">
+          🎒
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm md:text-base font-bold text-white tracking-tight">3D Grade School Learning Hall</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            1st Grade Flagship
+          </span>
+        </div>
+        <p class="text-[11px] text-slate-400 font-mono hidden sm:block">
+          7 Core Subjects • 4 Playable Games • 🎪 Wobbly Sandbox • 🏃 RPG Controls
+        </p>
+      </div>
+    </div>
+
+    <!-- Center: Adaptive Grade Selector & Subject Navigation -->
+    <div class="flex items-center gap-2.5 flex-1 max-w-xl mx-4">
+      
+      <!-- Grade Switcher Dropdown (Scalable K-5 Architecture) -->
+      <div class="flex items-center gap-1.5 bg-[#0d1629] border border-white/10 rounded-xl px-2.5 py-1">
+        <span class="text-xs text-amber-400">🏫</span>
+        <select id="grade-select" class="bg-transparent text-xs text-white focus:outline-none font-bold font-mono cursor-pointer">
+          <option value="k">Kindergarten</option>
+          <option value="1st" selected>1st Grade (Active)</option>
+          <option value="2nd">2nd Grade</option>
+          <option value="3rd">3rd Grade</option>
+          <option value="4th">4th Grade</option>
+          <option value="5th">5th Grade</option>
+        </select>
+      </div>
+
+      <!-- Subject Jump Dropdown -->
+      <div class="flex-1 min-w-[200px]">
+        <select id="subject-select" class="w-full bg-[#0d1629] border border-[#f59e0b]/40 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-[#f59e0b] font-mono cursor-pointer">
+          <optgroup label="📚 Core 1st Grade Subjects">
+            <option value="1">I. Reading &amp; Phonics Safari</option>
+            <option value="2">II. Math &amp; Numbers Pizzeria</option>
+            <option value="3">III. Writing &amp; Spelling Workshop</option>
+            <option value="4">IV. Curious Science &amp; Habitats</option>
+            <option value="5">V. Community &amp; World Explorers</option>
+            <option value="6">VI. Art, Colors &amp; Music Studio</option>
+            <option value="7">VII. Human Body &amp; Healthy Habits</option>
+          </optgroup>
+          <optgroup label="🎮 Arcade Wing &amp; Games">
+            <option value="8">VIII. 1st Grade Typing Academy</option>
+            <option value="9">IX. ChanceInvaders 1978 Space Arcade</option>
+            <option value="10">X. Junior Chess &amp; ChessVault</option>
+            <option value="11">XI. Frankie Milk Cap Vault</option>
+            <option value="12">XII. Wobbly Life Playroom &amp; Sandbox</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- Hall Wing Quick Navigation (Academic Hall vs. Arcade Gaming Hall) -->
+      <div class="hidden xl:flex items-center gap-1 bg-[#0d1629] border border-white/10 rounded-xl p-0.5">
+        <button id="nav-academic-hall-btn" class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 transition-all flex items-center gap-1" title="Walk to Main Academic Hall (Exhibits 1-7)">
+          <span>🏛️</span> Academic
+        </button>
+        <button id="nav-gaming-hall-btn" class="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 border border-purple-500/30 transition-all flex items-center gap-1" title="Walk to Arcade &amp; Gaming Hall (Exhibits 8-12)">
+          <span>🕹️</span> Gaming Hall
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Right Header Controls: Camera Toggle, Trophies, Sound, Fullscreen -->
+    <div class="flex items-center gap-2">
+
+      <!-- Direct Link / Shortcut to 🎪 Wobbly Playroom -->
+      <a href="../wobbly-playroom/index.html" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-orange-500/20 to-amber-500/20 hover:from-orange-500/40 hover:to-amber-500/40 border border-orange-500/40 text-orange-300 font-mono text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm" title="Launch Full 3D Wobbly Life Playroom & Sandbox">
+        <span>🎪</span>
+        <span class="hidden sm:inline">Wobbly Playroom</span>
+      </a>
+      
+      <!-- 🎥 1st Person / 🏃 3rd Person View Toggle Button -->
+      <button id="view-mode-toggle-btn" class="px-3 py-1.5 rounded-xl text-xs font-mono bg-white/5 hover:bg-white/10 border border-white/10 transition-all flex items-center gap-1.5" title="Switch between 1st Person and 3rd Person View (Hotkeys: V, 1, 3)">
+        <span class="text-amber-400">🎥</span> <span class="font-bold">1st Person</span> <span class="text-[10px] text-slate-400 border border-white/10 px-1 rounded">V</span>
+      </button>
+
+      <!-- 36-Week Full School Year Syllabus Button -->
+      <button id="syllabus-toggle-btn" class="px-3 py-1.5 rounded-xl text-xs font-mono font-bold bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 border border-blue-500/30 transition-all flex items-center gap-1.5" title="Open 36-Week 1-Year Curriculum Syllabus">
+        <span>📅</span> <span>36-Wk Syllabus</span>
+      </button>
+
+      <!-- 1-Year Report Card Button -->
+      <button id="report-card-btn" class="px-3 py-1.5 rounded-xl text-xs font-mono font-bold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition-all flex items-center gap-1.5" title="View Full 1-School-Year Mastery Report Card">
+        <span>📊</span> <span>Report Card</span>
+      </button>
+
+      <!-- Trophy Vault Button (Stars & Milk Caps) -->
+      <button id="trophy-vault-btn" class="px-3 py-1.5 rounded-xl text-xs font-mono font-bold bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition-all flex items-center gap-1.5" title="Open JumpStart Milk Cap Vault">
+        <span>⭐</span> <span id="user-stars-count">48</span>
+        <span class="text-slate-400">|</span>
+        <span>🏆</span> <span id="user-caps-count">4/100</span>
+      </button>
+
+      <!-- Audio Mute/Unmute -->
+      <button id="audio-toggle-btn" class="px-2.5 py-1.5 rounded-xl text-xs font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all">
+        🔊
+      </button>
+
+      <!-- Return to Baselines -->
+      <a href="../learning-hall/index.html" class="px-3 py-1.5 rounded-xl text-xs font-mono font-semibold bg-[#0e1d3a] text-amber-300 border border-amber-500/30 hover:border-amber-400 transition-all flex items-center gap-1">
+        <span>🏛️</span> Learning Hall
+      </a>
+
+      <!-- Fullscreen -->
+      <button class="px-2.5 py-1.5 rounded-xl text-xs font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10" onclick="AntigravityEnterprise.toggleFullscreen()" title="Toggle Fullscreen">
+        ⛶
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Walking Telemetry HUD (Appears when traversing corridor) -->
+  <div id="walking-hud" class="fixed top-20 left-1/2 -translate-x-1/2 z-20 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="glass-hud px-5 py-2.5 rounded-full flex items-center gap-4">
+      <div class="flex items-center gap-2 font-mono text-xs text-amber-300">
+        <span class="text-sm">🚶</span>
+        <span>WALKING TO:</span>
+        <strong id="walking-to-label" class="text-white">Exhibit</strong>
+      </div>
+
+      <!-- Footstep Stride Indicator -->
+      <div class="flex items-center gap-1.5 font-mono text-[11px]">
+        <span id="foot-l" class="foot-pulse px-2 py-0.5 rounded bg-white/10 text-slate-400">L</span>
+        <span id="foot-r" class="foot-pulse px-2 py-0.5 rounded bg-white/10 text-slate-400">R</span>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="w-24 h-1.5 rounded-full bg-white/10 overflow-hidden">
+        <div id="walking-progress-bar" class="h-full bg-amber-400 transition-all duration-75" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Floating Station Dock -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-20 w-[94%] max-w-4xl">
+    <div class="glass-hud rounded-2xl p-4 md:p-5">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        
+        <!-- Left: Subject Station Info -->
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span id="hud-subject-roman" class="text-xs font-black font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
+              I
+            </span>
+            <span id="hud-subject-code" class="text-xs font-mono text-slate-400">[READ-101]</span>
+            <span id="hud-subject-grade" class="text-[10px] font-bold font-mono px-2 py-0.5 rounded-full border border-emerald-500 text-emerald-400">
+              A+ (SUPER READER)
+            </span>
+          </div>
+
+          <h2 id="hud-subject-title" class="text-base md:text-lg font-bold text-white tracking-tight truncate">
+            Reading &amp; Phonics Safari
+          </h2>
+
+          <div class="flex items-center gap-2 mt-1 text-[11px] text-slate-400">
+            <span class="text-amber-400 font-mono">✦ Key Focus:</span>
+            <span id="hud-focus-topic" class="truncate text-slate-300">CVC Rhyming &amp; Silent E Magic</span>
+          </div>
+        </div>
+
+        <!-- Center: Readiness Gauge -->
+        <div class="w-full md:w-48">
+          <div class="flex items-center justify-between text-xs font-mono mb-1">
+            <span class="text-slate-400">MASTERY</span>
+            <span id="hud-readiness-pct" class="font-bold text-amber-300">92%</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+            <div id="hud-readiness-bar" class="h-full rounded-full bg-amber-400 transition-all duration-500" style="width: 92%"></div>
+          </div>
+        </div>
+
+        <!-- Right: Action Controls -->
+        <div class="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap sm:flex-nowrap">
+          <button id="rpg-run-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-amber-400/20 text-slate-200 hover:text-amber-300 border border-white/15 hover:border-amber-400/50 transition-all font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Toggle / Hold Sprint Speed (Shift)">
+            <span id="rpg-run-icon">⚡</span>
+            <span id="rpg-run-label">RUN [Shift]</span>
+          </button>
+          <button id="rpg-jump-btn" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs font-bold transition-all shadow-lg shadow-cyan-500/25 flex items-center gap-1.5 active:scale-95 select-none" title="Leap into the air with vertical spring arc (Space)">
+            <span>🚀</span>
+            <span>JUMP [Space]</span>
+          </button>
+          <button id="rpg-grab-btn" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-mono text-xs font-bold transition-all shadow-lg shadow-orange-500/25 flex items-center gap-1.5 active:scale-95 select-none" title="Grab / Pick up nearby toy or pizza [G], or Throw when held [F]">
+            <span>🤹</span>
+            <span id="rpg-grab-label">GRAB [G]</span>
+          </button>
+          <button id="rpg-flop-btn" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-mono text-xs font-bold transition-all shadow-lg shadow-purple-500/25 flex items-center gap-1.5 active:scale-95 select-none" title="Ragdoll Flop & Tumble [R]">
+            <span>🌀</span>
+            <span>FLOP [R]</span>
+          </button>
+          <button id="prev-exhibit-btn" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all font-mono text-xs" title="Walk to Previous Exhibit (A / ←)">
+            ←
+          </button>
+          <button id="open-drill-btn" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 text-slate-950 font-bold font-mono text-xs transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2">
+            <span>✏️</span> Practice Drill [E]
+          </button>
+          <button id="next-exhibit-btn" class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all font-mono text-xs" title="Walk to Next Exhibit (D / →)">
+            →
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. DEDICATED SUBJECT HUB & SYLLABUS MODAL -->
+  <div id="drill-modal" class="fixed inset-0 z-30 hidden modal-backdrop flex items-center justify-center p-3 md:p-6">
+    <div class="bg-[#0b1324] border border-amber-500/40 rounded-3xl w-full max-w-5xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden animate-scale-up">
+      
+      <!-- Top Modal Header -->
+      <div class="p-4 md:p-5 border-b border-white/10 flex flex-wrap items-center justify-between gap-3 bg-white/[0.02]">
+        <div class="flex items-center gap-3">
+          <div id="modal-drill-icon-box" class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-2xl">
+            📖
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-0.5">
+              <span id="modal-drill-code" class="text-xs font-mono text-amber-400 font-bold">[READ-101]</span>
+              <span id="modal-drill-grade" class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">1st Grade Flagship</span>
+            </div>
+            <h2 id="modal-drill-title" class="text-lg md:text-xl font-bold text-white tracking-tight">
+              Reading &amp; Phonics Safari
+            </h2>
+            <p id="modal-drill-quote" class="text-xs text-slate-400 font-mono italic">
+              "Woof! Let's explore new words together!"
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <!-- Traverse Through Picture Button -->
+          <button id="traverse-portal-btn" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-purple-500/25 transition-all" title="Traverse through the magic picture into the First Grade Learning Hub">
+            <span>🚪</span> <span>Step Through Picture</span>
+          </button>
+
+          <button id="close-drill-btn" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Internal Subject Sub-Tabs -->
+      <div class="px-5 py-2.5 bg-black/30 border-b border-white/5 flex items-center gap-2 overflow-x-auto">
+        <button id="subhub-tab-activities" class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-amber-500 text-slate-950 shadow-md transition-all flex items-center gap-1.5" onclick="GradeSchoolEngine.switchSubjectTab('activities')">
+          <span>🎯</span> Activity Hub &amp; Modes
+        </button>
+        <button id="subhub-tab-syllabus" class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-all flex items-center gap-1.5" onclick="GradeSchoolEngine.switchSubjectTab('syllabus')">
+          <span>📅</span> 36-Week Syllabus
+        </button>
+        <button id="subhub-tab-drill" class="px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-all flex items-center gap-1.5" onclick="GradeSchoolEngine.switchSubjectTab('drill')">
+          <span>📝</span> Practice Drill &amp; Quiz
+        </button>
+      </div>
+
+      <!-- Modal Content Body -->
+      <div id="drill-content-area" class="p-6 overflow-y-auto flex-1">
+        <!-- Injected dynamically by GradeSchoolHallEngine -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. PORTAL TRAVERSAL MODAL (Through Picture into 1st Grade Learning Hub) -->
+  <div id="portal-modal" class="fixed inset-0 z-40 hidden modal-backdrop flex items-center justify-center p-2 md:p-6">
+    <div class="bg-[#070e1c] border-2 border-purple-500/60 rounded-3xl w-full max-w-6xl h-[94vh] flex flex-col shadow-2xl overflow-hidden animate-scale-up">
+      <div class="p-4 border-b border-purple-500/30 flex items-center justify-between bg-purple-950/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-600/30 border border-purple-500/50 flex items-center justify-center text-xl">
+            🌌
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40">PORTAL WARP</span>
+              <h2 id="portal-modal-title" class="text-base font-bold text-white">Traversed into 1st Grade Learning Hub</h2>
+            </div>
+            <p class="text-xs text-purple-200/70 font-mono">Exploring through the magical subject painting</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <a id="portal-external-link" href="/1st-grade-learning/index.html" target="_blank" class="px-3 py-1.5 rounded-xl bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/40 text-xs font-mono text-purple-200 transition-all flex items-center gap-1">
+            <span>↗</span> Open Full Window
+          </a>
+          <button id="close-portal-btn" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all font-mono">
+            ✕
+          </button>
+        </div>
+      </div>
+      <div class="flex-1 w-full bg-white relative">
+        <iframe id="portal-frame" src="" class="w-full h-full border-0" title="1st Grade Learning Hub"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. PLAYABLE ARCADE GAME MODAL (Typing, ChanceInvaders, Junior Chess) -->
+  <div id="game-modal" class="fixed inset-0 z-30 hidden modal-backdrop flex items-center justify-center p-4">
+    <div class="bg-[#0b1324] border border-amber-500/40 rounded-3xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden animate-scale-up">
+      
+      <!-- Top Game Modal Header -->
+      <div class="p-4 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">
+        <div>
+          <div id="modal-game-code" class="text-xs font-mono text-amber-400">[GAME-TYPE]</div>
+          <h2 id="modal-game-title" class="text-lg font-bold text-white tracking-tight">
+            Arcade Game
+          </h2>
+        </div>
+
+        <button id="close-game-btn" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all">
+          ✕
+        </button>
+      </div>
+
+      <!-- Game Embed Container -->
+      <div id="game-embed-container" class="p-6 overflow-y-auto flex-1 flex items-center justify-center bg-black/30">
+        <!-- Injected dynamically by GradeSchoolHallEngine -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. JUMPSTART FRANKIE MILK CAP TROPHY VAULT MODAL -->
+  <div id="trophy-modal" class="fixed inset-0 z-30 hidden modal-backdrop flex items-center justify-center p-4">
+    <div class="bg-[#0b1324] border border-amber-500/40 rounded-3xl w-full max-w-4xl max-h-[88vh] flex flex-col shadow-2xl overflow-hidden animate-scale-up">
+      
+      <!-- Top Header -->
+      <div class="p-5 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-2xl">
+            🏆
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-white tracking-tight">Frankie's JumpStart Milk Cap Vault</h2>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">
+              100 Collectible 3D POGs &bull; Star Achievement Rewards
+            </p>
+          </div>
+        </div>
+
+        <button id="close-trophy-btn" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all">
+          ✕
+        </button>
+      </div>
+
+      <!-- Milk Caps Grid -->
+      <div class="p-6 overflow-y-auto flex-1">
+        <div id="milk-caps-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <!-- Injected dynamically by GradeSchoolHallEngine -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. 36-WEEK FULL SCHOOL YEAR SYLLABUS MODAL -->
+  <div id="syllabus-modal" class="fixed inset-0 z-30 hidden modal-backdrop flex items-center justify-center p-4">
+    <div class="bg-[#0b1324] border border-blue-500/40 rounded-3xl w-full max-w-5xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-scale-up">
+      
+      <!-- Top Header -->
+      <div class="p-5 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-2xl">
+            📅
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-bold text-white tracking-tight">Full 1-Year Curriculum Syllabus</h2>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                36 Weeks • 4 Quarters
+              </span>
+            </div>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">
+              Structured GCompris &amp; Khan Academy Standards for Grade 1
+            </p>
+          </div>
+        </div>
+
+        <button id="close-syllabus-btn" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all">
+          ✕
+        </button>
+      </div>
+
+      <!-- Quarter Switcher Navigation Tabs -->
+      <div class="flex items-center gap-2 px-6 py-3 border-b border-white/10 bg-[#070c18] font-mono text-xs overflow-x-auto">
+        <button class="quarter-tab-btn px-4 py-2 rounded-xl bg-blue-600 text-white font-bold transition-all" data-quarter="1" onclick="GradeSchoolEngine.switchSyllabusQuarter(1)">
+          🍂 Q1: Weeks 1–9 (Foundations)
+        </button>
+        <button class="quarter-tab-btn px-4 py-2 rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 font-bold transition-all" data-quarter="2" onclick="GradeSchoolEngine.switchSyllabusQuarter(2)">
+          ❄️ Q2: Weeks 10–18 (Fluency)
+        </button>
+        <button class="quarter-tab-btn px-4 py-2 rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 font-bold transition-all" data-quarter="3" onclick="GradeSchoolEngine.switchSyllabusQuarter(3)">
+          🌱 Q3: Weeks 19–27 (Concepts)
+        </button>
+        <button class="quarter-tab-btn px-4 py-2 rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 font-bold transition-all" data-quarter="4" onclick="GradeSchoolEngine.switchSyllabusQuarter(4)">
+          ☀️ Q4: Weeks 28–36 (Mastery)
+        </button>
+      </div>
+
+      <!-- Syllabus Week Cards Grid -->
+      <div class="p-6 overflow-y-auto flex-1">
+        <div id="syllabus-weeks-container" class="space-y-4">
+          <!-- Injected dynamically by GradeSchoolHallEngine -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 5. 1-YEAR EDUCATOR PROGRESS REPORT CARD MODAL -->
+  <div id="report-modal" class="fixed inset-0 z-30 hidden modal-backdrop flex items-center justify-center p-4">
+    <div class="bg-[#0b1324] border border-emerald-500/40 rounded-3xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-scale-up">
+      
+      <div class="p-5 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-2xl">
+            📊
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-white tracking-tight">Annual Elementary Mastery Report Card</h2>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">
+              Full 36-Week Scope &amp; Sequence Observability Dashboard
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-slate-200" onclick="window.print()">
+            🖨️ Print
+          </button>
+          <button id="close-report-btn" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <div class="p-6 overflow-y-auto flex-1">
+        <div id="report-card-content" class="space-y-6">
+          <!-- Injected dynamically by GradeSchoolHallEngine -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="grade-school-curriculum-year.js"></script>
+  <script src="grade-school-data.js"></script>
+  <script src="grade-school-hall-scene.js"></script>
+  <script src="grade-school-hall-engine.js"></script>
+
+</body>
+</html>

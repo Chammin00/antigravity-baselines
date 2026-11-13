@@ -1,0 +1,1246 @@
+﻿{
+    "title":  "Centralized 3D Learning Hall: Master Knowledge \u0026 Telemetry Manifest",
+    "version":  "2.0.0",
+    "standard":  "HOW_I_LEARN_BASELINE.md",
+    "referenceChannel":  "https://www.youtube.com/@cramexam",
+    "totalSubjects":  65,
+    "overallReadinessAverage":  86.9,
+    "lastSynchronized":  "2026-11-11T13:22:55.0003976-06:00",
+    "subjects":  [
+                     {
+                         "id":  1,
+                         "roman":  "I",
+                         "code":  "SY0-701",
+                         "title":  "CompTIA Security+ \u0026 Core IT Architecture",
+                         "category":  "Cybersecurity \u0026 Infrastructure",
+                         "readiness":  88,
+                         "grade":  "A- (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  12
+                                      },
+                         "domainWeights":  "12% / 22% / 18% / 28% / 20%",
+                         "questionsMastered":  420,
+                         "pbqsCompleted":  38,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/comptia exam simulator"
+                     },
+                     {
+                         "id":  2,
+                         "roman":  "II",
+                         "code":  "EX200",
+                         "title":  "Red Hat Certified System Administrator (RHCSA)",
+                         "category":  "Enterprise Linux Administration",
+                         "readiness":  92,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  8
+                                      },
+                         "domainWeights":  "15% / 20% / 20% / 15% / 15% / 10% / 5%",
+                         "questionsMastered":  24,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/RHCSA Exam200"
+                     },
+                     {
+                         "id":  3,
+                         "roman":  "III",
+                         "code":  "CLF-C02",
+                         "title":  "AWS Certified Solutions Architect \u0026 Cloud Practitioner",
+                         "category":  "Cloud Architecture \u0026 Systems",
+                         "readiness":  85,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  4
+                                      },
+                         "domainWeights":  "24% / 30% / 34% / 12%",
+                         "questionsMastered":  65,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/aws"
+                     },
+                     {
+                         "id":  4,
+                         "roman":  "IV",
+                         "code":  "EX280",
+                         "title":  "Red Hat OpenShift \u0026 Enterprise Containers",
+                         "category":  "Cloud Native \u0026 Orchestration",
+                         "readiness":  79,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  0
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  18,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/openshift"
+                     },
+                     {
+                         "id":  5,
+                         "roman":  "V",
+                         "code":  "SCRIPT-01",
+                         "title":  "Enterprise Systems \u0026 Automation Scripting",
+                         "category":  "Automation \u0026 Systems Engineering",
+                         "readiness":  94,
+                         "grade":  "A+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -4
+                                      },
+                         "domainWeights":  "20% / 20% / 20% / 20% / 20%",
+                         "questionsMastered":  14,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/Scripting"
+                     },
+                     {
+                         "id":  6,
+                         "roman":  "VI",
+                         "code":  "CYBER-SOC",
+                         "title":  "Cyber Defense, SOC \u0026 Windows SIEM Forensics",
+                         "category":  "Defensive Security \u0026 Incident Response",
+                         "readiness":  86,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -8
+                                      },
+                         "domainWeights":  "30% / 25% / 25% / 20%",
+                         "questionsMastered":  150,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/windows event viewer"
+                     },
+                     {
+                         "id":  7,
+                         "roman":  "VII",
+                         "code":  "AGI-MCP",
+                         "title":  "Autonomous AI Architecture, Agent Systems \u0026 Model Training",
+                         "category":  "Artificial Intelligence \u0026 Agentic Engineering",
+                         "readiness":  95,
+                         "grade":  "A+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -12
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  32,
+                         "pbqsCompleted":  24,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/How to train your AI"
+                     },
+                     {
+                         "id":  8,
+                         "roman":  "VIII",
+                         "code":  "ZFOLD6",
+                         "title":  "Samsung Galaxy Z Fold 6 Power-User Systems",
+                         "category":  "Mobile Hardware \u0026 Power-User Workflows",
+                         "readiness":  91,
+                         "grade":  "A- (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -16
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  24,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/zfold6 features"
+                     },
+                     {
+                         "id":  9,
+                         "roman":  "IX",
+                         "code":  "YT-SHORT",
+                         "title":  "Gaming Video Soundtrack Curation \u0026 Remastering",
+                         "category":  "Media Production \u0026 Audio Engineering",
+                         "readiness":  89,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -20
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  27,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/youtube shorts edit for gaming"
+                     },
+                     {
+                         "id":  10,
+                         "roman":  "X",
+                         "code":  "PC-PERF",
+                         "title":  "Gaming PC Performance \u0026 Thread Optimization",
+                         "category":  "Hardware Systems \u0026 Performance Engineering",
+                         "readiness":  90,
+                         "grade":  "A- (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -24
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  30,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/improve gaming pc performance"
+                     },
+                     {
+                         "id":  11,
+                         "roman":  "XI",
+                         "code":  "AWS-ARCH",
+                         "title":  "Enterprise Systems \u0026 AWS Reference Architecture",
+                         "category":  "Cloud Architecture \u0026 Scalable Systems",
+                         "readiness":  87,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -28
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  33,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/architect"
+                     },
+                     {
+                         "id":  12,
+                         "roman":  "XII",
+                         "code":  "REA-LAB",
+                         "title":  "Reverse Engineering Automation \u0026 Ghidra Headless",
+                         "category":  "Binary Forensics \u0026 Vulnerability Research",
+                         "readiness":  84,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -32
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  36,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/REA"
+                     },
+                     {
+                         "id":  13,
+                         "roman":  "XIII",
+                         "code":  "AURA-AI",
+                         "title":  "Aura Personal AI Desktop Assistant \u0026 Orchestrator",
+                         "category":  "Artificial Intelligence \u0026 Agentic Engineering",
+                         "readiness":  92,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -36
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  39,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/personal assistant"
+                     },
+                     {
+                         "id":  14,
+                         "roman":  "XIV",
+                         "code":  "DRV-ORG",
+                         "title":  "DriveFlow Cloud \u0026 Storage AutoOrganizer",
+                         "category":  "Cloud Infrastructure \u0026 Storage Automation",
+                         "readiness":  89,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -40
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  42,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/google drive organizer"
+                     },
+                     {
+                         "id":  15,
+                         "roman":  "XV",
+                         "code":  "MBL-GAME",
+                         "title":  "React Native \u0026 TypeScript Mobile Game Architecture",
+                         "category":  "Game Development \u0026 Interactive Simulation",
+                         "readiness":  82,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -44
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  45,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/mobile game"
+                     },
+                     {
+                         "id":  16,
+                         "roman":  "XVI",
+                         "code":  "GAME-REC",
+                         "title":  "Smart Boss Fight \u0026 Gameplay Recorder (OBS Studio)",
+                         "category":  "Media Production \u0026 Audio Engineering",
+                         "readiness":  88,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -48
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  24,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/Record my Gameplay"
+                     },
+                     {
+                         "id":  17,
+                         "roman":  "XVII",
+                         "code":  "DAILY-TR",
+                         "title":  "Daily Technical Skills Training Roadmap \u0026 Labs",
+                         "category":  "Enterprise Systems \u0026 Professional Development",
+                         "readiness":  93,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -52
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  27,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/personal training"
+                     },
+                     {
+                         "id":  18,
+                         "roman":  "XVIII",
+                         "code":  "VULN-MGT",
+                         "title":  "VulnGuard Enterprise Vulnerability Management Platform",
+                         "category":  "Cybersecurity \u0026 IT Infrastructure",
+                         "readiness":  92,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -56
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  30,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/vulnerability management"
+                     },
+                     {
+                         "id":  19,
+                         "roman":  "XIX",
+                         "code":  "AI-DEF",
+                         "title":  "Aegis-AI Defense Matrix: Agent Containment",
+                         "category":  "Cybersecurity \u0026 AI Containment",
+                         "readiness":  94,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -60
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  33,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/ai defense"
+                     },
+                     {
+                         "id":  20,
+                         "roman":  "XX",
+                         "code":  "BOT-FIND",
+                         "title":  "BotFinder \u0026 RageShield Social Threat Detection",
+                         "category":  "Cybersecurity \u0026 Machine Learning",
+                         "readiness":  88,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -64
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  36,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/bot finder"
+                     },
+                     {
+                         "id":  21,
+                         "roman":  "XXI",
+                         "code":  "SCR-READ",
+                         "title":  "Kindle Voice Narrator \u0026 AI Study Companion",
+                         "category":  "Assistive Technology \u0026 Neural Voice Systems",
+                         "readiness":  91,
+                         "grade":  "A- (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -68
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  39,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/screen reader"
+                     },
+                     {
+                         "id":  22,
+                         "roman":  "XXII",
+                         "code":  "OPS-ENG",
+                         "title":  "Operations Ingestion \u0026 Forensic Reconciliation Engine",
+                         "category":  "Enterprise Automation \u0026 Financial Engineering",
+                         "readiness":  90,
+                         "grade":  "A- (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -72
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  42,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/using ai agents for profit"
+                     },
+                     {
+                         "id":  23,
+                         "roman":  "XXIII",
+                         "code":  "OLLAMA",
+                         "title":  "Ollama Studio \u0026 Local LLM Modelfile Synchronizer",
+                         "category":  "Artificial Intelligence \u0026 Agentic Engineering",
+                         "readiness":  92,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -76
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  45,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/ollama"
+                     },
+                     {
+                         "id":  24,
+                         "roman":  "XXIV",
+                         "code":  "AGT-365",
+                         "title":  "Microsoft 365 Enterprise Suite \u0026 Autonomous Copilot",
+                         "category":  "Software Engineering \u0026 Enterprise Productivity",
+                         "readiness":  93,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -80
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  24,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/agent 365"
+                     },
+                     {
+                         "id":  25,
+                         "roman":  "XXV",
+                         "code":  "AAC-COMM",
+                         "title":  "Amina AAC \u0026 Phonics Universal Communication Studio",
+                         "category":  "Assistive Technology \u0026 Cognitive Literacy",
+                         "readiness":  94,
+                         "grade":  "A+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -84
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  27,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/AAC"
+                     },
+                     {
+                         "id":  26,
+                         "roman":  "XXVI",
+                         "code":  "DOCKER",
+                         "title":  "Docker, WSL2 \u0026 Container Runtime Engineering",
+                         "category":  "Cloud \u0026 Container Platforms",
+                         "readiness":  88,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -88
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  30,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/docker"
+                     },
+                     {
+                         "id":  27,
+                         "roman":  "XXVII",
+                         "code":  "PLANET-3D",
+                         "title":  "Deep Space Planetary Observatory \u0026 3D Celestial Atlas",
+                         "category":  "Simulation \u0026 Educational Astronomy",
+                         "readiness":  87,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -92
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  33,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/My Planetarium"
+                     },
+                     {
+                         "id":  28,
+                         "roman":  "XXVIII",
+                         "code":  "SENTINEL",
+                         "title":  "Sentinel PC Security Guard \u0026 Local Telemetry",
+                         "category":  "Cybersecurity \u0026 IT Infrastructure",
+                         "readiness":  86,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -96
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  36,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/MY Security"
+                     },
+                     {
+                         "id":  29,
+                         "roman":  "XXIX",
+                         "code":  "AI-DET",
+                         "title":  "Is This AI? Smart Screen \u0026 Content Detector",
+                         "category":  "Artificial Intelligence \u0026 Forensic Detection",
+                         "readiness":  89,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -100
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  39,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/is this AI"
+                     },
+                     {
+                         "id":  30,
+                         "roman":  "XXX",
+                         "code":  "GAME-LIB",
+                         "title":  "Xbox PC App \u0026 Game Catalog Clean-Room Reconstruction",
+                         "category":  "Software Engineering \u0026 Interactive Media",
+                         "readiness":  86,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -104
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  42,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/Game Library"
+                     },
+                     {
+                         "id":  31,
+                         "roman":  "XXXI",
+                         "code":  "SLIDE-SIM",
+                         "title":  "Water Slides Physics Simulator \u0026 Channel Production",
+                         "category":  "Simulation \u0026 Physics Engineering",
+                         "readiness":  81,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -108
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  45,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/Scary Water Slides"
+                     },
+                     {
+                         "id":  32,
+                         "roman":  "XXXII",
+                         "code":  "CHOOGLE",
+                         "title":  "Choogle Custom Search Engine \u0026 Knowledge Portal",
+                         "category":  "Information Retrieval \u0026 Web Systems",
+                         "readiness":  85,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -112
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  24,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/Choogle"
+                     },
+                     {
+                         "id":  33,
+                         "roman":  "XXXIII",
+                         "code":  "GRADE-1",
+                         "title":  "Grade School Foundational Curriculum \u0026 Phonics",
+                         "category":  "Education \u0026 Cognitive Literacy",
+                         "readiness":  95,
+                         "grade":  "A+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -116
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  27,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/1st grade learning"
+                     },
+                     {
+                         "id":  34,
+                         "roman":  "XXXIV",
+                         "code":  "3DIMAGES",
+                         "title":  "3d images",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  82,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -120
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  30,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/3d images"
+                     },
+                     {
+                         "id":  35,
+                         "roman":  "XXXV",
+                         "code":  "AIMODELS",
+                         "title":  "ðŸ§  Curated AI Tools Directory \u0026 Project Application Guide",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  83,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -124
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  33,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/ai models tools from threads"
+                     },
+                     {
+                         "id":  36,
+                         "roman":  "XXXVI",
+                         "code":  "AISLOP",
+                         "title":  "ai slop",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  84,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -128
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  36,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/ai slop"
+                     },
+                     {
+                         "id":  37,
+                         "roman":  "XXXVII",
+                         "code":  "ANIME",
+                         "title":  "ðŸ”­ Celestial Anime Planetarium \u0026 Crunchyroll Observatory",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  85,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -132
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  39,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/anime"
+                     },
+                     {
+                         "id":  38,
+                         "roman":  "XXXVIII",
+                         "code":  "AUTOMATE",
+                         "title":  "ðŸš€ Automate My Day - Master Automation Suite",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  86,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -136
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  42,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/automate my day"
+                     },
+                     {
+                         "id":  39,
+                         "roman":  "XXXIX",
+                         "code":  "BACKGROU",
+                         "title":  "ðŸŒŒ Background Master Studio: Gaming \u0026 Apps",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  87,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -140
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  45,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/backgrounds for gaming,apps"
+                     },
+                     {
+                         "id":  40,
+                         "roman":  "XL",
+                         "code":  "CHANCENV",
+                         "title":  "ðŸ‘¾ CHANCENVADERS 1978 â€” Space Invaders Arcade Replica",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  88,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -144
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  24,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/chancenvaders"
+                     },
+                     {
+                         "id":  41,
+                         "roman":  "XLI",
+                         "code":  "CHESS",
+                         "title":  "chess",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  89,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -148
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  27,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/chess"
+                     },
+                     {
+                         "id":  42,
+                         "roman":  "XLII",
+                         "code":  "DEPLOY",
+                         "title":  "Antigravity Projects Classification \u0026 Deployment Status",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  90,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -152
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  30,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/deploy"
+                     },
+                     {
+                         "id":  43,
+                         "roman":  "XLIII",
+                         "code":  "DESKTOPS",
+                         "title":  "desktopscreensaver",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  91,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -156
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  33,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/desktopscreensaver"
+                     },
+                     {
+                         "id":  44,
+                         "roman":  "XLIV",
+                         "code":  "EMAILORG",
+                         "title":  "ðŸ“¬ Gmail Email Organizer \u0026 Daily Digest (Option 3: Hybrid)",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  92,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -160
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  36,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/email organizer"
+                     },
+                     {
+                         "id":  45,
+                         "roman":  "XLV",
+                         "code":  "GAMEMODS",
+                         "title":  "Agent Instructions: ROM Modding, Conversion \u0026 Emulator Engineering",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  78,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -164
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  39,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/game mods"
+                     },
+                     {
+                         "id":  46,
+                         "roman":  "XLVI",
+                         "code":  "GAMEREVI",
+                         "title":  "YouTube Review Script: A Plague Tale: Resonance",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  79,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -168
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  42,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/game review"
+                     },
+                     {
+                         "id":  47,
+                         "roman":  "XLVII",
+                         "code":  "GAMESTUD",
+                         "title":  "Antigravity Game Studio \u0026 ROM Modding Suite",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  80,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -172
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  45,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/game studio"
+                     },
+                     {
+                         "id":  48,
+                         "roman":  "XLVIII",
+                         "code":  "GITHUBPO",
+                         "title":  "Chase R. Hamilton",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  81,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -176
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  24,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/Github Portfolio"
+                     },
+                     {
+                         "id":  49,
+                         "roman":  "XLIX",
+                         "code":  "INSPECTM",
+                         "title":  "inspect my pc for improvements",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  82,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -180
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  27,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/inspect my pc for improvements"
+                     },
+                     {
+                         "id":  50,
+                         "roman":  "L",
+                         "code":  "MCP",
+                         "title":  "Model Context Protocol (MCP) Hub",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  83,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -184
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  30,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/MCP"
+                     },
+                     {
+                         "id":  51,
+                         "roman":  "LI",
+                         "code":  "MONOPOLY",
+                         "title":  "monopoly",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  84,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -188
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  33,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/monopoly"
+                     },
+                     {
+                         "id":  52,
+                         "roman":  "LII",
+                         "code":  "MYCUSTOM",
+                         "title":  "My Custom Gui",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  85,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -192
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  36,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/My Custom Gui"
+                     },
+                     {
+                         "id":  53,
+                         "roman":  "LIII",
+                         "code":  "NOTETAKE",
+                         "title":  "Note Taker \u0026 Study Hub",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  86,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -196
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  39,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/note taker"
+                     },
+                     {
+                         "id":  54,
+                         "roman":  "LIV",
+                         "code":  "ONESTOP",
+                         "title":  "onestop",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  87,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -200
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  42,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/onestop"
+                     },
+                     {
+                         "id":  55,
+                         "roman":  "LV",
+                         "code":  "PORTFOLI",
+                         "title":  "ðŸŒŸ Chase R. Hamilton - Executive Technical Portfolio",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  88,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -204
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  45,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/portfolio"
+                     },
+                     {
+                         "id":  56,
+                         "roman":  "LVI",
+                         "code":  "PROJECTR",
+                         "title":  "Antigravity Projects Master Refinement \u0026 Enhancement Hub",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  89,
+                         "grade":  "B+ (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -208
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  24,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/project refinement"
+                     },
+                     {
+                         "id":  57,
+                         "roman":  "LVII",
+                         "code":  "SANDBOX",
+                         "title":  "Antigravity Projects Sandbox",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  90,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -212
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  27,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/sandbox"
+                     },
+                     {
+                         "id":  58,
+                         "roman":  "LVIII",
+                         "code":  "SPAMBLOC",
+                         "title":  "Privacy \u0026 Spam Control Center",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  91,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -216
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  30,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/spam block"
+                     },
+                     {
+                         "id":  59,
+                         "roman":  "LIX",
+                         "code":  "STOCKBOT",
+                         "title":  "ðŸ¤– Multi-Asset Stock \u0026 Crypto Quantitative Trading Suite",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  92,
+                         "grade":  "A (EXAM READY)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -220
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  33,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/stock Bot traders"
+                     },
+                     {
+                         "id":  60,
+                         "roman":  "LX",
+                         "code":  "STOCKWAT",
+                         "title":  "Institutional Stock Analysis \u0026 Algorithmic Trading Suite",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  78,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -224
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  36,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/stock watch"
+                     },
+                     {
+                         "id":  61,
+                         "roman":  "LXI",
+                         "code":  "SYNERGIZ",
+                         "title":  "ðŸŒ Antigravity Master Portfolio Manifest \u0026 Project Tracker",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  79,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -228
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  39,
+                         "pbqsCompleted":  10,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/synergize and pay"
+                     },
+                     {
+                         "id":  62,
+                         "roman":  "LXII",
+                         "code":  "TRACKHOM",
+                         "title":  "Home Value Tracker: 1766 Crestridge Cir, Princeton, TX 75407",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  80,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -232
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  42,
+                         "pbqsCompleted":  12,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/Track Home Value"
+                     },
+                     {
+                         "id":  63,
+                         "roman":  "LXIII",
+                         "code":  "TRACKMOS",
+                         "title":  "Most Wanted Tracker: ANTA KAI HÃ©lÃ  Style Limited \"Ocean Eye\" (Size 12)",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  81,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -236
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  45,
+                         "pbqsCompleted":  14,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/track most wanted"
+                     },
+                     {
+                         "id":  64,
+                         "roman":  "LXIV",
+                         "code":  "VRCREATI",
+                         "title":  "Agent Instructions â€” WebXR First Steps",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  82,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "right",
+                         "position":  {
+                                          "x":  3.38,
+                                          "y":  1.85,
+                                          "z":  -240
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  24,
+                         "pbqsCompleted":  16,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/VR creation apps"
+                     },
+                     {
+                         "id":  65,
+                         "roman":  "LXV",
+                         "code":  "YOUTUBEC",
+                         "title":  "Your Favorite Character\u0027s White Noise: Channel Blueprint",
+                         "category":  "Systems Engineering \u0026 Applied Technology",
+                         "readiness":  83,
+                         "grade":  "B (IN TRAINING)",
+                         "wall":  "left",
+                         "position":  {
+                                          "x":  -3.38,
+                                          "y":  1.85,
+                                          "z":  -244
+                                      },
+                         "domainWeights":  "25% / 30% / 25% / 20%",
+                         "questionsMastered":  27,
+                         "pbqsCompleted":  8,
+                         "projectSource":  "G:/My Drive/Antigravity/Projects/youtube channels"
+                     }
+                 ]
+}
