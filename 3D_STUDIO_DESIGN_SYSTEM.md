@@ -145,3 +145,18 @@ The 3D Studio is not just a static showcase—it is an **active command deck** c
 | **3D Centralized Learning Hall** | [`learning-hall`](file:///g:/My%20Drive/Antigravity/Projects/baselines/learning-hall/index.html) | Enterprise IT & Certifications | 8 core certification exhibits, CompTIA PBQs, RHEL terminal simulator, flashcard decks, CramExam standards. |
 | **3D Game Studio Showroom** | `game studio` | Engine Bays & Game Hub | Unity 6, UE5, Godot 4.7, ROM vault, Shadow Blade martial arts showcase, MCP action dispatchers. |
 
+---
+
+## 8. Web Design, ITF Typography, SVG Grain & 3D PBR Assets Suite
+
+Every 3D Studio and frontend hub integrates the 5-platform craftsmanship stack (codified in [`web-3d-asset-craftsmanship`](file:///C:/Users/chase/.gemini/config/skills/web-3d-asset-craftsmanship/SKILL.md)):
+
+| Platform | Resource Domain | Baseline Implementation |
+| :--- | :--- | :--- |
+| **[jiro.build](https://jiro.build)** | Curated AI Web & UI Layout Prompts | `.jiro-bento-grid` 12-column asymmetric telemetry layouts, split-hero 3D command decks, and `AntigravityCraftsmanship.jiroPrompts` in the Ollama Co-Pilot. |
+| **[fffuel.co](https://fffuel.co)** | SVG Mesh Gradients, Grain & Patterns | `--fffuel-nnnoise-svg` (`<feTurbulence>` fractal film grain at `3.5%` opacity), `--fffuel-iso-pattern`, and `--fffuel-topo-pattern`. |
+| **[poly.pizza](https://poly.pizza)** | Free Low-Poly 3D Models (`.glb`/`.gltf`) | `AntigravityCraftsmanship.createPolyPizzaProp()` faceted `flatShading: true` low-poly props & Three.js/R3F companion satellites. |
+| **[fontshare.com](https://www.fontshare.com)** | ITF Commercial-Free Typography | Auto-injected Fontshare CDN pairing `Clash Display` / `Cabinet Grotesk` (`--font-display`) with `Satoshi` / `General Sans` (`--font-sans`). |
+| **[ambientcg.com](https://ambientcg.com)** | CC0 Public-Domain PBR Materials & HDRIs | `AntigravityCraftsmanship.createAmbientCgMaterial()` tangent-space NormalGL + Roughness maps (`Marble012`, `Metal032`, `Wood066`). |
+
+
