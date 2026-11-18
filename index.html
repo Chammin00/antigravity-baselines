@@ -16,6 +16,7 @@
   <script src="cosmic-background.js" defer></script>
   <script src="mcp-baseline.js" defer></script>
   <script src="aws-enterprise-baseline.js" defer></script>
+<style>:where(button[data-btn-reset]){font:inherit;color:inherit;background:transparent;border:none;padding:0;margin:0;text-align:inherit;}</style>
 </head>
 <body class="bg-[#050B18] text-slate-100 min-h-screen selection:bg-[#C5A059] selection:text-[#050B18] overflow-hidden font-sans">
 
@@ -52,26 +53,26 @@
       <div class="hidden md:flex items-center flex-1 max-w-md mx-6">
         <div class="w-full relative">
           <input type="text" id="global-search-input" placeholder="Search baselines, rules, or habits (Ctrl+K)..."
-                 class="w-full bg-[#050B18] border border-[rgba(197,160,89,0.25)] rounded-lg px-3 py-1.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#C5A059] transition-all">
+                 class="w-full bg-[#050B18] border border-[rgba(197,160,89,0.25)] rounded-lg px-3 py-1.5 text-xs text-white placeholder-slate-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus:border-[#C5A059] transition-[transform,opacity,background-color,border-color,color,box-shadow]">
           <span class="absolute right-2.5 top-1.5 text-[10px] font-mono text-slate-500 border border-white/10 px-1 rounded">⌘K</span>
         </div>
       </div>
 
       <!-- Header Controls -->
       <div class="header-right">
-        <a href="wobbly-playroom/index.html" class="px-3 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-pink-500 via-rose-500 to-amber-400 hover:from-rose-400 hover:to-amber-300 text-white font-bold shadow-md shadow-pink-500/20 transition-all flex items-center gap-1.5" title="Launch 3D Wobbly Life Playroom Sandbox Studio">
+        <a href="wobbly-playroom/index.html" class="px-3 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-pink-500 via-rose-500 to-amber-400 hover:from-rose-400 hover:to-amber-300 text-white font-bold shadow-md shadow-pink-500/20 transition-[transform,opacity,background-color,border-color,color,box-shadow] flex items-center gap-1.5" title="Launch 3D Wobbly Life Playroom Sandbox Studio">
           <span>🎪</span> 3D Wobbly Playroom
         </a>
-        <a href="grade-school-hall/index.html" class="px-3 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/20 transition-all flex items-center gap-1.5" title="Launch 3D Grade School Learning Hall (1st Grade Flagship)">
+        <a href="grade-school-hall/index.html" class="px-3 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/20 transition-[transform,opacity,background-color,border-color,color,box-shadow] flex items-center gap-1.5" title="Launch 3D Grade School Learning Hall (1st Grade Flagship)">
           <span>🎒</span> 3D Grade School Hall
         </a>
-        <a href="learning-hall/index.html" class="px-3 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-[#C5A059] to-[#DFBA73] hover:from-[#DFBA73] hover:to-[#C5A059] text-[#050B18] font-bold shadow-md shadow-[#C5A059]/20 transition-all flex items-center gap-1.5" title="Launch Centralized 3D Learning Hall Studio">
+        <a href="learning-hall/index.html" class="px-3 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r from-[#C5A059] to-[#DFBA73] hover:from-[#DFBA73] hover:to-[#C5A059] text-[#050B18] font-bold shadow-md shadow-[#C5A059]/20 transition-[transform,opacity,background-color,border-color,color,box-shadow] flex items-center gap-1.5" title="Launch Centralized 3D Learning Hall Studio">
           <span>🏛️</span> 3D Learning Hall
         </a>
-        <button id="open-mcp-hud-btn" class="px-3 py-1 rounded-lg text-xs font-semibold bg-[#0E1D3A] text-[#DFBA73] border border-[#C5A059]/30 hover:border-[#C5A059] hover:bg-[#16284D] transition-all flex items-center gap-1.5">
+        <button id="open-mcp-hud-btn" class="px-3 py-1 rounded-lg text-xs font-semibold bg-[#0E1D3A] text-[#DFBA73] border border-[#C5A059]/30 hover:border-[#C5A059] hover:bg-[#16284D] transition-[transform,opacity,background-color,border-color,color,box-shadow] flex items-center gap-1.5">
           <span>⚡</span> MCP HUD
         </button>
-        <button class="px-3 py-1 rounded-lg text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 transition-all flex items-center gap-1.5" onclick="AntigravityEnterprise.toggleFullscreen()" title="Toggle Fullscreen">
+        <button class="px-3 py-1 rounded-lg text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 transition-[transform,opacity,background-color,border-color,color,box-shadow] flex items-center gap-1.5" onclick="AntigravityEnterprise.toggleFullscreen()" title="Toggle Fullscreen">
           <span>⛶</span> Fullscreen
         </button>
       </div>
@@ -214,7 +215,7 @@
                 Enforced 3-agent orchestration pipelines for Mobile App Design (Expo/React Native) and Video Game Design (Godot 4 Node3D + Headless Blender .glb Pipeline when scope matches)
               </p>
             </div>
-            <a href="MULTI_AGENT_WORKFLOWS_BASELINE.md" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[#0E1D3A] text-[#DFBA73] border border-[#C5A059]/40 hover:border-[#C5A059] transition-all">
+            <a href="MULTI_AGENT_WORKFLOWS_BASELINE.md" target="_blank" class="px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-[#0E1D3A] text-[#DFBA73] border border-[#C5A059]/40 hover:border-[#C5A059] transition-[transform,opacity,background-color,border-color,color,box-shadow]">
               View Full Spec (MULTI_AGENT_WORKFLOWS_BASELINE.md)
             </a>
           </div>
@@ -357,7 +358,7 @@
       </main>
 
       <!-- Centered Modal & Multi-Dock Inspector (AWS Baseline Standard) -->
-      <div class="inspector-backdrop" id="inspector-backdrop" onclick="AntigravityEnterprise.closeInspector()"></div>
+      <button type="button" class="inspector-backdrop" id="inspector-backdrop" onclick="AntigravityEnterprise.closeInspector()" data-btn-reset></button>
       <aside class="app-inspector mode-center hidden" id="app-inspector">
         <div class="inspector-head">
           <div class="inspector-head-title">

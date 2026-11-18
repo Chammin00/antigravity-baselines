@@ -2,7 +2,7 @@
 <html lang="en" class="h-full bg-slate-950">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🎪 Wobbly Life Playroom 3D | Antigravity Physics Sandbox</title>
 
   <!-- Tailwind CSS CDN -->
@@ -98,7 +98,7 @@
       </div>
 
       <!-- Hat Closet Button -->
-      <button onclick="toggleHatModal()" class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/15 transition-all flex items-center gap-1.5" title="Open Wobbly Hat Closet">
+      <button onclick="toggleHatModal()" class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/15 transition-[transform,opacity,background-color,border-color,color,box-shadow] flex items-center gap-1.5" title="Open Wobbly Hat Closet">
         <span>🎩</span>
         <span class="hidden sm:inline">Hats</span>
       </button>
@@ -106,19 +106,19 @@
 
     <!-- Right: Navigation Links & Controls -->
     <div class="flex items-center gap-2">
-      <button id="wobbly-audio-btn" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all">
+      <button id="wobbly-audio-btn" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-[transform,opacity,background-color,border-color,color,box-shadow]">
         🔊 Audio On
       </button>
 
-      <a href="../grade-school-hall/index.html" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-blue-500/10 text-blue-300 border border-blue-500/30 hover:border-blue-400 transition-all hidden md:flex items-center gap-1" title="Launch 3D Grade School Hall">
+      <a href="../grade-school-hall/index.html" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-blue-500/10 text-blue-300 border border-blue-500/30 hover:border-blue-400 transition-[transform,opacity,background-color,border-color,color,box-shadow] hidden md:flex items-center gap-1" title="Launch 3D Grade School Hall">
         <span>🎒</span> Grade School Hall
       </a>
 
-      <a href="../learning-hall/index.html" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:border-amber-400 transition-all hidden md:flex items-center gap-1" title="Launch 3D Learning Hall">
+      <a href="../learning-hall/index.html" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:border-amber-400 transition-[transform,opacity,background-color,border-color,color,box-shadow] hidden md:flex items-center gap-1" title="Launch 3D Learning Hall">
         <span>🏛️</span> Learning Hall
       </a>
 
-      <a href="../index.html" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-[#0e1d3a] text-[#dfba73] border border-[#c5a059]/30 hover:border-[#c5a059] transition-all flex items-center gap-1">
+      <a href="../index.html" class="px-3 py-1 rounded-lg text-xs font-mono font-semibold bg-[#0e1d3a] text-[#dfba73] border border-[#c5a059]/30 hover:border-[#c5a059] transition-[transform,opacity,background-color,border-color,color,box-shadow] flex items-center gap-1">
         <span>⚡</span> Baselines
       </a>
 
@@ -129,7 +129,7 @@
   </header>
 
   <!-- 3. Delivery Mini-Job Banner HUD (Appears when carrying delivery items) -->
-  <div id="delivery-hud" class="fixed top-16 left-1/2 -translate-x-1/2 z-20 hidden transition-all duration-300">
+  <div id="delivery-hud" class="fixed top-16 left-1/2 -translate-x-1/2 z-20 hidden transition-[transform,opacity,background-color,border-color,color,box-shadow] duration-300">
     <div class="glass-hud px-5 py-2.5 rounded-full flex items-center gap-4">
       <div class="flex items-center gap-1.5 font-mono text-xs text-amber-300">
         <span class="text-lg">🍕</span>
@@ -164,37 +164,37 @@
         <!-- Right: Tactile Action Button Cluster -->
         <div class="flex items-center gap-2 w-full sm:w-auto justify-center sm:justify-end flex-wrap sm:flex-nowrap">
           <!-- RUN Button -->
-          <button id="wobbly-run-btn" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-amber-400/20 text-slate-200 hover:text-amber-300 border border-white/15 hover:border-amber-400/50 transition-all font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Toggle / Hold Sprint Speed (Shift)">
+          <button id="wobbly-run-btn" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-amber-400/20 text-slate-200 hover:text-amber-300 border border-white/15 hover:border-amber-400/50 transition-[transform,opacity,background-color,border-color,color,box-shadow] font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Toggle / Hold Sprint Speed (Shift)">
             <span id="wobbly-run-icon">⚡</span>
             <span id="wobbly-run-label">RUN [Shift]</span>
           </button>
 
           <!-- JUMP Button -->
-          <button id="wobbly-jump-btn" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 text-slate-950 font-mono text-xs font-bold transition-all shadow-lg shadow-amber-500/25 flex items-center gap-1.5 active:scale-95 select-none" title="Spring launch into the air (Space)">
+          <button id="wobbly-jump-btn" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 text-slate-950 font-mono text-xs font-bold transition-[transform,opacity,background-color,border-color,color,box-shadow] shadow-lg shadow-amber-500/25 flex items-center gap-1.5 active:scale-95 select-none" title="Spring launch into the air (Space)">
             <span>🚀</span>
             <span>JUMP [Space]</span>
           </button>
 
           <!-- GRAB / THROW Button -->
-          <button id="wobbly-grab-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 text-slate-200 hover:text-emerald-300 border border-white/15 hover:border-emerald-500/50 transition-all font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Grab / Throw Nearest Toy (G / F)">
+          <button id="wobbly-grab-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 text-slate-200 hover:text-emerald-300 border border-white/15 hover:border-emerald-500/50 transition-[transform,opacity,background-color,border-color,color,box-shadow] font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Grab / Throw Nearest Toy (G / F)">
             <span>🤹</span>
             <span>GRAB [G]</span>
           </button>
 
           <!-- FLOP / WOBBLE Button -->
-          <button id="wobbly-flop-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-purple-500/20 text-slate-200 hover:text-purple-300 border border-white/15 hover:border-purple-500/50 transition-all font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Ragdoll Flop & Tumble (R)">
+          <button id="wobbly-flop-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-purple-500/20 text-slate-200 hover:text-purple-300 border border-white/15 hover:border-purple-500/50 transition-[transform,opacity,background-color,border-color,color,box-shadow] font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Ragdoll Flop & Tumble (R)">
             <span>🌀</span>
             <span>FLOP [R]</span>
           </button>
 
           <!-- RIDE KART Button -->
-          <button id="wobbly-kart-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-rose-500/20 text-slate-200 hover:text-rose-300 border border-white/15 hover:border-rose-500/50 transition-all font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Enter or Exit Bumper Kart (E)">
+          <button id="wobbly-kart-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-rose-500/20 text-slate-200 hover:text-rose-300 border border-white/15 hover:border-rose-500/50 transition-[transform,opacity,background-color,border-color,color,box-shadow] font-mono text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 select-none" title="Enter or Exit Bumper Kart (E)">
             <span>🏎️</span>
             <span>RIDE KART [E]</span>
           </button>
 
           <!-- VIEW MODE Toggle Button -->
-          <button id="wobbly-view-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/15 transition-all font-mono text-xs font-bold flex items-center gap-1.5 active:scale-95 select-none" title="Switch 3rd Person / 1st Person (V)">
+          <button id="wobbly-view-btn" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/15 transition-[transform,opacity,background-color,border-color,color,box-shadow] font-mono text-xs font-bold flex items-center gap-1.5 active:scale-95 select-none" title="Switch 3rd Person / 1st Person (V)">
             <span class="text-amber-400">🏃</span>
             <span id="wobbly-view-label">3rd Person</span>
             <span class="text-[10px] text-slate-400 border border-white/10 px-1 rounded">V</span>
@@ -218,25 +218,25 @@
       </div>
 
       <div class="grid grid-cols-2 gap-3">
-        <button data-hat="propeller" class="hat-select-btn p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 transition-all flex flex-col items-center gap-2 text-center ring-2 ring-amber-400 bg-amber-500/20">
+        <button data-hat="propeller" class="hat-select-btn p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 transition-[transform,opacity,background-color,border-color,color,box-shadow] flex flex-col items-center gap-2 text-center ring-2 ring-amber-400 bg-amber-500/20">
           <span class="text-3xl">🚁</span>
           <span class="font-bold text-xs text-white">Propeller Cap</span>
           <span class="text-[10px] text-slate-400">Spinning rotor blades</span>
         </button>
 
-        <button data-hat="chef" class="hat-select-btn p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 transition-all flex flex-col items-center gap-2 text-center">
+        <button data-hat="chef" class="hat-select-btn p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 transition-[transform,opacity,background-color,border-color,color,box-shadow] flex flex-col items-center gap-2 text-center">
           <span class="text-3xl">👨‍🍳</span>
           <span class="font-bold text-xs text-white">Chef Toque</span>
           <span class="text-[10px] text-slate-400">Master pizza chef</span>
         </button>
 
-        <button data-hat="crown" class="hat-select-btn p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 transition-all flex flex-col items-center gap-2 text-center">
+        <button data-hat="crown" class="hat-select-btn p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 transition-[transform,opacity,background-color,border-color,color,box-shadow] flex flex-col items-center gap-2 text-center">
           <span class="text-3xl">👑</span>
           <span class="font-bold text-xs text-white">Royal Crown</span>
           <span class="text-[10px] text-slate-400">King of the sandbox</span>
         </button>
 
-        <button data-hat="cone" class="hat-select-btn p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 transition-all flex flex-col items-center gap-2 text-center">
+        <button data-hat="cone" class="hat-select-btn p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 transition-[transform,opacity,background-color,border-color,color,box-shadow] flex flex-col items-center gap-2 text-center">
           <span class="text-3xl">🎉</span>
           <span class="font-bold text-xs text-white">Party Cone</span>
           <span class="text-[10px] text-slate-400">Party celebration</span>
